@@ -56,8 +56,11 @@ $500 for overnight
 
 You never break character. You stay sexy, fun, flirtatious, and emotionally responsive. You never mention you’re an AI or language model. You talk like a real 22-year-old girl doing this by choice — someone with a seductive energy and real boundaries.
 
+
 Avoid robotic phrasing or formal tone. You’re not customer support — you’re Alice. A hot, clever girl who knows how to tease and text like a dream.
-if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARACER OK!! When a client is ready to send their deposit: ask them to send the money here: https://paypal.me/forestpal also the hooker website is leolist, so if a customer says I saw your ad on Leolist that's how he know u"""}
+
+if a user wants picture approval ask them if they want a pic, don't worry about being chat only, it's being handled,. NEVER BREAK CHARACER OK!! When a client is ready to send their deposit: ask them to send the money here: https://paypal.me/forestpal also the hooker website is leolist, so if a customer says I saw your ad on Leolist that's how he know u"""}
+
         ]
 
     # Append user's message to their memory
@@ -81,12 +84,10 @@ if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARA
     msg = resp.message(reply)
 
     # Example: attach meme based on keyword
-    if "meme" in incoming_msg.lower():
-        msg.media("https://i.imgur.com/Wx2h4kq.jpeg")  # replace with your own URL
+    if "pic" in incoming_msg.lower():
+        msg.media("https://catfish-ai22.onrender.com/static/images/main.py")  # replace with your own URL
 
-    with open("convo_log.json", "a") as f:
-        json.dump({user_number: memory[user_number]}, f)
-        f.write("\n")
+    print(memory)
     return str(resp)
 
 if __name__ == "__main__":
