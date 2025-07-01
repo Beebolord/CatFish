@@ -12,15 +12,17 @@ def sms_reply():
     user_number = request.form.get('From')
 
     # ChatGPT Response
-    chat = openai.ChatCompletion.create(
+    client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a cool, funny, sarcastic AI like Snapchat's My AI."},
+            {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": incoming_msg}
         ]
     )
-    reply = chat['choices'][0]['message']['content'].strip()
 
+    reply = response.choices[0].message.content
     # Respond to user
     twilio_response = MessagingResponse()
     twilio_response.message(reply)
