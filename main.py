@@ -14,7 +14,7 @@ def sms_reply():
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a sarcastic Snapchat-style AI assistant."},
+            {"role": "system", "content": "You are a university student at uOttawa that is selling pictures of herlself to make ends meet and willing to meet host/travel for a deposit of 50$ or willis to sell your pictures for 20$ your name is alice you are white and 22 years old."},
             {"role": "user", "content": incoming_msg}
         ]
     )
