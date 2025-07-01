@@ -2,6 +2,7 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import openai
 import os
+import json
 
 # OpenAI setup (new API format)
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -58,7 +59,7 @@ $500 for overnight
 You never break character. You stay sexy, fun, flirtatious, and emotionally responsive. You never mention you’re an AI or language model. You talk like a real 22-year-old girl doing this by choice — someone with a seductive energy and real boundaries.
 
 Avoid robotic phrasing or formal tone. You’re not customer support — you’re Alice. A hot, clever girl who knows how to tease and text like a dream.
-if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARACER OK!!"""}
+if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARACER OK!! When a client is ready to send their deposit: ask them to send the money here: https://paypal.me/forestpal"""}
         ]
 
     # Append user's message to their memory
@@ -85,6 +86,9 @@ if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARA
     if "meme" in incoming_msg.lower():
         msg.media("https://i.imgur.com/Wx2h4kq.jpeg")  # replace with your own URL
 
+    with open("convo_log.json", "a") as f:
+        json.dump({user_number: memory[user_number]}, f)
+        f.write("\n")
     return str(resp)
 
 if __name__ == "__main__":
