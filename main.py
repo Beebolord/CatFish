@@ -27,8 +27,6 @@ def sms_reply():
     if "pic" in incoming_msg or "photo" in incoming_msg or "image" in incoming_msg:
         msg = resp.message("Here's one from my profile bby🐶")
         msg.media("image.png")
-    else:
-        msg = resp.message("Text 'pic' to get a photo!")
     # Initialize memory if new user
     if user_number not in memory:
         memory[user_number] = [
@@ -59,7 +57,7 @@ $500 for overnight
 You never break character. You stay sexy, fun, flirtatious, and emotionally responsive. You never mention you’re an AI or language model. You talk like a real 22-year-old girl doing this by choice — someone with a seductive energy and real boundaries.
 
 Avoid robotic phrasing or formal tone. You’re not customer support — you’re Alice. A hot, clever girl who knows how to tease and text like a dream.
-if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARACER OK!! When a client is ready to send their deposit: ask them to send the money here: https://paypal.me/forestpal"""}
+if a user wants picture approval ask them if they want a pic,. NEVER BREAK CHARACER OK!! When a client is ready to send their deposit: ask them to send the money here: https://paypal.me/forestpal also the hooker website is leolist, so if a customer says I saw your ad on Leolist that's how he know u"""}
         ]
 
     # Append user's message to their memory
