@@ -3,6 +3,8 @@ from twilio.twiml.messaging_response import MessagingResponse
 import openai
 import os
 import json
+import time
+import random
 
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -32,6 +34,7 @@ memory = load_memory()
 def sms_reply():
     incoming_msg = request.form.get("Body")
     user_number = request.form.get("From")
+    time.sleep(random.uniform(1.5, 3.0))
     resp = MessagingResponse()
 
     if any(word in incoming_msg.lower() for word in ["pic", "photo", "image"]):
